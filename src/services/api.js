@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://organizeit-api.vercel.app";
+const BASE_URL = "https://organizeit-api-production.up.railway.app";
 
 const axiosApi = axios.create({
   baseURL: BASE_URL,
