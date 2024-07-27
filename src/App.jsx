@@ -34,10 +34,10 @@ function App() {
             <Route element={<Layout />}>
               <Route path="/login" element={<Login />}></Route>
               <Route path="/signup" element={<Signup />}></Route>
+                <Route index element={<Home />}></Route>
               <Route element={<PresistLogin />}>
                 <Route element={<AuthRequire />}>
                   <Route path="/profile" element={<Soon />}></Route>
-                  <Route index element={<Home />}></Route>
                   <Route
                     path="/notes"
                     element={

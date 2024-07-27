@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://organizeit-api.onrender.com";
+const BASE_URL = "https://organizeit-api.vercel.app";
 
 const axiosApi = axios.create({
   baseURL: BASE_URL,
