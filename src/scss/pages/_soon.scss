@@ -1,0 +1,31 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/breakpoints" as *;
+
+.soon-page {
+  .container {
+    @include flex-center-v(null);
+    video {
+      width: 400px;
+    }
+    h1 {
+      @include flex-center-h(5px);
+      font-size: 26px;
+      margin: 15px 0;
+    }
+    p {
+      max-width: 550px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    @include respond-up(sm) {
+      h1 {
+        font-size: 18px;
+      }
+      video {
+        width: 250px;
+      }
+    }
+  }
+}

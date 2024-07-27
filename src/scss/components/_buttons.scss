@@ -1,0 +1,113 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/breakpoints" as *;
+
+.xlg-btn {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: $border-main-raduis;
+  @include respond-up(sm) {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}
+.md-btn {
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm) {
+    font-size: 12px;
+    padding: 4px;
+  }
+}
+.sm-btn {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm) {
+    font-size: 12px;
+  }
+}
+
+.main-back-btn {
+  @include flex-center-h(10px);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: $border-main-raduis;
+  &:hover {
+    svg {
+      transform: translateX(-5px);
+      transition: transform 0.3s linear;
+    }
+  }
+  @include respond-up(usm) {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}
+
+.dark-btn {
+  color: $font-light-color;
+  background-color: $main-dark-bg;
+  &:hover {
+    color: $alt-font-color;
+    background-color: $dark-bg-hover;
+  }
+  &:disabled {
+    color: $alt-font-color;
+    background-color: $dark-bg-hover;
+  }
+  &.active {
+    color: $font-dark-color;
+    background-color: $gray-bg;
+  }
+}
+
+.gray-btn {
+  color: $font-dark-color;
+  background-color: $gray-bg;
+  &.active,
+  &:hover {
+    color: $font-light-color;
+    background-color: $main-dark-bg;
+  }
+}
+.white-gray-btn {
+  color: $font-dark-color;
+  background-color: $white-gray-bg;
+  &.active,
+  &:hover {
+    color: $font-light-color;
+    background-color: $main-dark-bg;
+  }
+}
+
+.status-btn {
+  color: #ffff;
+  font-size: 14px;
+  text-transform: capitalize;
+  padding: 4px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm) {
+    font-size: 12px;
+  }
+  &.pending-bg {
+    background-color: $orange;
+  }
+  &.completed-bg {
+    background-color: $green;
+  }
+}
+
+.count-btn {
+  font-weight: 600;
+  font-size: 16px;
+  background-color: $white-gray-bg;
+  padding: 4px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm){
+    font-size: 12px;
+  }
+}

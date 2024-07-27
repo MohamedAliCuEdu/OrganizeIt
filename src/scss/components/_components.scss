@@ -1,0 +1,127 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/breakpoints" as *;
+@use "../helpers/animations" as *;
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+@media (max-width: 768px) {
+  main .container .page-title {
+    h2,
+    svg {
+      font-size: 24px;
+    }
+  }
+}
+@media (max-width: 500px) {
+  body main .container {
+    .page-title {
+      h2,
+      svg {
+        font-size: 20px;
+      }
+    }
+  }
+}
+.overlay-element {
+  @include overlay($overlay-dark-bg);
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  main .container .page-title {
+    h2,
+    svg {
+      font-size: 24px;
+    }
+  }
+  .notfound-page .content {
+    img {
+      width: 150px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+    a {
+      font-size: 16px;
+      padding: 5px 10px;
+    }
+  }
+}
+
+.error-msg-div {
+  width: 100%;
+  text-align: center;
+  margin-top: 80px;
+  span {
+    color: $font-dark-color;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  h2 {
+    margin-top: 10px;
+  }
+}
+.no-results-match {
+  text-align: center;
+  margin: 30px auto 20px;
+  img {
+    width: 250px;
+    background-color: $main-light-bg;
+    box-shadow: $main-shadow;
+    padding: 15px;
+    border-radius: $border-main-raduis;
+    @include respond-up(xsm){
+      width: 180px;
+    }
+  }
+  h2 {
+    margin-top: 15px;
+  }
+}
+
+.empty-list {
+  flex: 1;
+  margin: 80px auto;
+  text-align: center;
+  & > svg {
+    font-size: 120px;
+    color: $alt-font-color;
+    margin-bottom: 10px;
+  }
+  button,
+  a {
+    display: flex;
+    width: fit-content;
+    color: $font-light-color;
+    background-color: $font-dark-color;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 15px;
+    margin: 15px auto 0;
+    border-radius: 4px;
+    &:hover {
+      background-color: $alt-font-color;
+    }
+  }
+}
+.logo {
+  background-color: $main-light-bg;
+  text-align: center;
+  a {
+    font-family: $alt-font-family;
+    font-size: $logo-font-size;
+    font-weight: 600;
+    color: $font-dark-color;
+  }
+}
+
+.celebrate-canvas {
+  width: 100%;
+}

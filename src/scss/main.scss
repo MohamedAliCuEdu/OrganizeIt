@@ -1,0 +1,20 @@
+@use "./global";
+
+// layouts:
+@use "./layouts";
+// classes:
+@use "./classes";
+
+// components:
+@use "./components";
+
+// pages:
+@use "./pages/home.scss";
+@use "./pages/tasks.scss";
+@use "./pages/forms.scss";
+@use "./pages/archive.scss";
+@use "./pages/notes.scss";
+@use "./pages/notfound.scss";
+@use "./pages/soon.scss";
+
+

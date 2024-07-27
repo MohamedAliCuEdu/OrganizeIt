@@ -1,0 +1,40 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/breakpoints" as *;
+
+body {
+  #root {
+    height: 100vh;
+    position: relative;
+    background-color: $body-light-bg;
+    main {
+      height: 100%;
+      padding-top: $main-header-height;
+      padding-left: $main-nav-width;
+      @include respond-up(sm) {
+        padding-left: 0px;
+      }
+      @include respond-up(usm) {
+        padding-top: 40px;
+      }
+    }
+    .container {
+      height: 100%;
+      padding: 0 15px;
+      margin: 0 auto;
+      position: relative;
+      @include respond-down(sxm) {
+        max-width: 540px;
+      }
+      @include respond-down(sm) {
+        max-width: 720px;
+      }
+      @include respond-down(md) {
+        max-width: 960px;
+      }
+      @include respond-down(lg) {
+        max-width: 1140px;
+      }
+    }
+  }
+}

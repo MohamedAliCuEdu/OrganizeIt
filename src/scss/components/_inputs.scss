@@ -1,0 +1,44 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/breakpoints" as *;
+
+.input-md-field {
+  width: 240px;
+  padding: 6px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm) {
+    width: 220px;
+    padding: 4px;
+  }
+}
+.input-lg-field {
+  width: 280px;
+  padding: 10px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm) {
+    width: 240px;
+    padding: 6px;
+  }
+}
+.input-xlg-field {
+  width: 380px;
+  padding: 10px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm) {
+    width: 260px;
+    padding: 8px;
+  }
+}
+.input-flex-field {
+  flex: 1;
+  padding: 10px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm) {
+    width: 260px;
+    padding: 8px;
+  }
+}
+.light-input {
+  color: $font-dark-color;
+  background-color: $input-light-bg;
+}

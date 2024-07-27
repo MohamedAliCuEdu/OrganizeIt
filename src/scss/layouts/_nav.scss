@@ -1,0 +1,69 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/breakpoints" as *;
+
+#root > nav {
+  height: 100vh;
+  background-color: $main-dark-bg;
+  box-shadow: $main-shadow;
+  position: fixed;
+  width: 180px;
+  z-index: 20;
+  &::before {
+    @include ele-overlay($overlay-dark-bg);
+    width: 100vw;
+    display: none;
+  }
+  .container {
+    padding: 0;
+  }
+  .nav-logo-btn {
+    padding: 15px;
+  }
+  ul {
+    padding-top: 80px;
+    li a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      color: $font-light-color;
+      padding: 15px 30px;
+      &.active,
+      &:hover {
+        background-color: $dark-bg-hover;
+      }
+    }
+  }
+  .nav-close-btn {
+    @include icon-circle(50px, $main-dark-bg, $font-light-color, "inbox");
+    display: none;
+    position: absolute;
+    right: -80px;
+    bottom: 50%;
+    transform: translateY(-50%);
+    svg {
+      color: $light-bg-hover;
+      font-size: 32px;
+    }
+    &:hover {
+      background-color: $dark-bg-hover;
+    }
+  }
+}
+
+body #root > nav {
+  @include respond-up(sm) {
+    left: -200px;
+    z-index: 200;
+    &.view {
+      left: 0;
+      &:before {
+        display: block;
+      }
+      .nav-close-btn {
+        display: flex;
+      }
+    }
+  }
+}

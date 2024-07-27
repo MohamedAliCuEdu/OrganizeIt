@@ -1,0 +1,68 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/breakpoints" as *;
+@use "../helpers/animations" as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  text-transform: capitalize;
+  line-height: 1.4;
+  color: $font-dark-color;
+}
+label,
+input {
+  color: $font-dark-color;
+}
+
+p {
+  font-size: 16px;
+  @include respond-up(sm) {
+    font-size: 14px;
+  }
+  @include respond-up(xsm) {
+    font-size: 12px;
+  }
+}
+
+h1 {
+  font-size: 30px;
+  @include respond-up(sm) {
+    font-size: 22px;
+  }
+}
+h2 {
+  font-size: 26px;
+  @include respond-up(sm) {
+    font-size: 20px;
+  }
+  @include respond-up(xsm) {
+    font-size: 18px;
+  }
+}
+h4 {
+  font-size: 18px;
+  @include respond-up(sm) {
+    font-size: 16px;
+  }
+}
+
+label,
+::placeholder {
+  font-size: 14px;
+  @include respond-up(xsm) {
+    font-size: 12px;
+  }
+}
+input {
+  font-size: 16px;
+  @include respond-up(usm) {
+    font-size: 12px;
+  }
+}
+
+

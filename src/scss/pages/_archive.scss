@@ -1,0 +1,103 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+
+.archive-page {
+  .container {
+    min-width: 100%;
+    .archive-header {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      background-color: $main-light-bg;
+      padding: 5px 15px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      .back-btn {
+        @include icon-circle(35px, null, $font-dark-color, "inbox");
+        font-size: 22px;
+        &:hover {
+          svg {
+            color: $font-light-color;
+          }
+          background-color: $main-dark-bg;
+        }
+      }
+      .content {
+        display: flex;
+        gap: 15px;
+        span,
+        button {
+          border-radius: 4px;
+        }
+        .list-count {
+          @include flex-center-h(null);
+          background-color: $gray-bg;
+          color: $font-dark-color;
+          font-size: 18px;
+          font-weight: 600;
+          padding: 0 10px;
+        }
+        button {
+          @include flex-center-h(5px);
+          color: $font-light-color;
+          background-color: $dark-bg-hover;
+          font-size: 16px;
+          padding: 5px;
+          border-radius: 4px;
+          &:hover {
+            background-color: $gray-bg-hover;
+          }
+          &.unarchive-btn svg {
+            font-size: 24px;
+          }
+          &.delete-all svg {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  .notes-content {
+    display: block;
+    .notes-list.notes-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 15px;
+      padding: 0;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .archive-page .container {
+    .archive-header {
+      .back-btn {
+        @include icon-circle(25px, null, $font-dark-color, "inbox");
+        font-size: 16px;
+      }
+      .content {
+        gap: 10px;
+        button {
+          font-size: 12px;
+          @include flex-center-h(5px);
+          &.unarchive-btn svg,
+          &.delete-all svg {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .notes-content .notes-list.notes-grid {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+  }
+}
+@media (max-width: 500px) {
+  .archive-page .container {
+    .notes-content .notes-list.notes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      .note-card {
+        flex-basis: calc((100% - 15px) / 2);
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../helpers/breakpoints" as *;
+
+#root > header {
+  width: 100%;
+  background-color: $main-light-bg;
+  box-shadow: $main-shadow;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  .container {
+    @include flex-between-h(20px);
+    padding: 10px 30px;
+    .header-logo-btn {
+      @include respond-up(sm){
+        display: none;
+      }
+    }
+    .menu-btn {
+      @include icon-shape(30px, 30px, transparent, $font-dark-color, "inbox");
+      display: none;
+      font-size: 25px;
+      &:hover {
+        background-color: $light-bg-hover;
+        border-radius: $border-main-raduis;
+      }
+      @include respond-up(sm){
+        display: flex;
+      }
+      @include respond-up(usm){
+        font-size: 16px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .header-links {
+      display: flex;
+      gap: 5px;
+      a,
+      button {
+        @include icon-circle(35px, $main-light-bg, $font-dark-color, "inbox");
+        font-size: 20px;
+        &:hover {
+          background-color: $light-bg-hover;
+        }
+        @include respond-up(usm){
+          width: 20px;
+          height: 20px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
