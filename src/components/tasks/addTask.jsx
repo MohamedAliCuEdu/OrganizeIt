@@ -18,7 +18,7 @@ function AddTask({}) {
         required
       />
       <button
-        className="dark-btn flex-center"
+        className="xlg-icon-btn dark-btn"
         type="submit"
         disabled={isPending}
       >
@@ -27,4 +27,4 @@ function AddTask({}) {
     </form>
   );
 }
-export default AddTask;
+export default React.memo(AddTask);

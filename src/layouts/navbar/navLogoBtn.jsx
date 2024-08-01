@@ -11,4 +11,4 @@ function NavLogoBtn() {
   );
 }
 
-export default NavLogoBtn;
+export default React.memo(NavLogoBtn);

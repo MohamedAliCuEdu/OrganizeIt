@@ -4,7 +4,7 @@ import OverlayElement from "../components/overlayElement";
 import BulletsLoading from "../components/loading/bulletsLoading";
 import ErrorDiv from "../components/error-div";
 import useNotesContext from "../hooks/useNotesContext";
-import NoteSectionIndex from "../components/noteSectionComponents/noteSectionIndex";
+import NoteSectionIndex from "../components/noteSection/noteSectionIndex";
 import PageTitle from "../components/pageTitle";
 import useLayoutContext from "../hooks/useLayoutContext";
 import NoContent from "../components/noContent";
@@ -12,7 +12,7 @@ import { CgNotes } from "react-icons/cg";
 import { PiNotePencilBold } from "react-icons/pi";
 
 function Notes() {
-  const { overlayDisplay } = useLayoutContext();
+  const { overlayDisplay, handleOverlayDisplay } = useLayoutContext();
   const {
     allNotes,
     allTags,
@@ -42,7 +42,7 @@ function Notes() {
                 className="l-btn"
                 onClick={() => {
                   handleNoteView("open");
-                  handleOverlay();
+                  handleOverlayDisplay();
                 }}
               >
                 new note <PiNotePencilBold />

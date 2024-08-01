@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
 import NoResults from "../NoResults";
 import useTasksContext from "../../hooks/useTasksContext";
 import TasksIndex from "./tasksIndex";
 
 function TasksList() {
-  const { allTasks, searchInput } = useTasksContext();
-  const [searchParams] = useSearchParams();
+  console.log("--list")
+  const { allTasks, searchInput, statusSP } = useTasksContext();
   const [list, setList] = useState();
 
-  let statusSP = searchParams.get("status");
-  
   useEffect(() => {
     // filter allTasks:
     const filterTasks = allTasks.filter((t) => {
@@ -33,4 +30,4 @@ function TasksList() {
   );
 }
 
-export default TasksList;
+export default React.memo(TasksList);

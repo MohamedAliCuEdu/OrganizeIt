@@ -9,4 +9,4 @@ function AccountExistMsg() {
   );
 }
 
-export default AccountExistMsg;
+export default React.memo(AccountExistMsg);

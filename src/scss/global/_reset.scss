@@ -57,12 +57,14 @@ option {
 
 button,
 input,
-textarea {
+textarea, select {
   border: none;
   outline: none;
   background-color: transparent;
 }
-
+input:disabled{
+  background-color: #ccc;
+}
 ::-webkit-scrollbar {
   background-color: $scrollbar-bg;
 }

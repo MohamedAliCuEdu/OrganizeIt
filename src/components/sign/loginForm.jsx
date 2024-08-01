@@ -31,4 +31,4 @@ function LoginForm({ children, handleSubmit }) {
   );
 }
 
-export default LoginForm;
+export default React.memo(LoginForm);

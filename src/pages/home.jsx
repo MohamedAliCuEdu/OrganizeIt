@@ -5,6 +5,7 @@ import Confetti from "react-confetti";
 import HomeIndex from "../components/home";
 
 function HomePage() {
+  console.log("home page")
   const { auth } = useAuth();
 
   const [party, setParty] = useState(false);

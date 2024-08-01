@@ -1,14 +1,9 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
+import useTasksContext from "../../hooks/useTasksContext";
 
 function StatusFilter() {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  let statusSP = searchParams.get("status");
-  function handleStatusSP(status) {
-    status ? searchParams.set("status", status) : searchParams.delete("status");
-    setSearchParams(searchParams);
-  }
+  console.log("--status")
+  const { statusSP, handleStatusSP } = useTasksContext();
 
   return (
     <div className="status-filter filter-btns">
@@ -18,20 +13,20 @@ function StatusFilter() {
       <button
         onClick={() => handleStatusSP("pending")}
         className={`${
-          statusSP === "pending" ? "active" : null
-        } white-gray-btn md-btn`}
+          statusSP === "pending" && "active"
+        } white-gray-btn dark-hover md-btn`}
       >
         pending
       </button>
       <button
         onClick={() => handleStatusSP("completed")}
         className={`${
-          statusSP === "completed" ? "active" : null
-        } white-gray-btn md-btn`}
+          statusSP === "completed" && "active"
+        } white-gray-btn dark-hover md-btn`}
       >
         completed
       </button>
     </div>
   );
 }
-export default StatusFilter;
+export default React.memo(StatusFilter);

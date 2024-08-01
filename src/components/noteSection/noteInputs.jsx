@@ -1,18 +1,13 @@
 import React from "react";
 import useNotesContext from "../../hooks/useNotesContext";
-import useLayoutContext from "../../hooks/useLayoutContext";
 
-function noteForm({ children }) {
-  const { note, handleNote, saveNoteApi, isPending } = useNotesContext();
-  
+function NoteInputs() {
+  const { note, handleNote } = useNotesContext();
+
   return (
-    <form
-      method="POST"
-      onSubmit={(e) => {
-        saveNoteApi(e, note._id, note.is_archived);
-      }}
-    >
+    <div className="note-inputs light-input">
       <input
+        className="full-w-field"
         type="text"
         id="title"
         name="title"
@@ -25,21 +20,17 @@ function noteForm({ children }) {
         data-letters={`${note?.content?.length || 0}/1000`}
       >
         <textarea
+          className="full-w-field"
           id="content"
           name="content"
           onChange={handleNote}
           value={note?.content || ""}
-          maxLength="1500"
+          maxLength="1000"
           placeholder="type...."
         />
       </div>
-      {children}
-      <div className="form-btns">
-        <input type="submit" disabled={isPending} value="save"/>
-        <button type="reset">reset</button>
-      </div>
-    </form>
+    </div>
   );
 }
 
-export default noteForm;
+export default NoteInputs;

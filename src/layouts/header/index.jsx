@@ -8,6 +8,7 @@ import GestLinks from "./gestLinks";
 import HeaderLogoBtn from "./headerLogobtn";
 
 function Header() {
+  console.log("---header")
   const { auth } = useAuth();
 
   return (
@@ -21,4 +22,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default React.memo(Header);

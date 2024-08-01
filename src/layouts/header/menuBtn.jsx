@@ -12,4 +12,4 @@ function MenuBtn() {
   );
 }
 
-export default MenuBtn;
+export default React.memo(MenuBtn);

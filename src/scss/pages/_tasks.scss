@@ -16,13 +16,6 @@
         }
         form {
           margin-bottom: 5px;
-          button {
-            font-size: 36px;
-            border-radius: $border-main-raduis;
-            @include respond-up(usm) {
-              font-size: 26px;
-            }
-          }
         }
         .search-div {
           position: relative;
@@ -59,11 +52,11 @@
     .tasks-content {
       @include flex-between-h(10px);
       align-items: flex-start;
-      padding-bottom: 10px;
+      padding: $items-content-padding;
       .tasks-list {
         height: 68vh;
         flex: 1;
-        padding-right: 10px;
+        padding: $items-list-padding;
         overflow-y: auto;
         overflow-x: hidden;
         &::-webkit-scrollbar,
@@ -150,8 +143,8 @@
       .tasks-board {
         min-width: 200px;
         background-color: $main-light-bg;
+        padding: $board-padding;
         border-radius: $border-main-raduis;
-        padding: 20px 10px;
         overflow: hidden;
         position: relative;
         @include respond-up(sm) {

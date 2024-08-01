@@ -2,6 +2,7 @@ import React, { useState, useEffect, createContext } from "react";
 import useAuth from "../hooks/useAuth";
 import usePrivateAxios from "../hooks/usePrivateAxios";
 import useLayoutContext from "../hooks/useLayoutContext";
+import { useSearchParams } from "react-router-dom";
 
 const NotesContext = createContext({});
 
@@ -9,6 +10,7 @@ export function NotesProvider({ children }) {
   const { auth } = useAuth();
   const axiosPrivateApi = usePrivateAxios();
   const { handleOverlayDisplay } = useLayoutContext();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [allNotes, setAllNotes] = useState([]);
   const [allTags, setAllTags] = useState([]);
@@ -16,8 +18,10 @@ export function NotesProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [fetchDataErr, setFetchDataErr] = useState(false);
 
+  const [searchInput, setSearchInput] = useState("");
+
   const [noteView, setNoteView] = useState(false); // view note section state:
-  const [note, setNote] = useState({ title: "", content: "", tags: [] }); // current note:
+  const [note, setNote] = useState({}); // current note:
   const [isPending, setIsPending] = useState(false);
   const [inputErr, setInputErr] = useState("");
   const [tagInputErr, setTagInputErr] = useState("");
@@ -64,47 +68,51 @@ export function NotesProvider({ children }) {
     return () => ctrl.abort();
   }, []);
 
-  // handle note section view:
-  const handleNoteView = React.useCallback(
-    (noteId, isArchive) => {
-      setNoteView(!noteView);
-      handleOverlayDisplay();
-      noteId
-        ? !isArchive
-          ? setNote(allNotes.find((n) => n._id === noteId))
-          : setNote(archiveNotes.find((n) => n._id === noteId))
-        : setNote({ title: "", content: "", tags: [] });
-    },
-    [allNotes, archiveNotes]
-  );
+  let tagSP = searchParams.get("status");
 
+  function handleTagSP(status) {
+    status ? searchParams.set("status", status) : searchParams.delete("status");
+    setSearchParams(searchParams);
+  }
+  // handle note section view:
+  const handleNoteView = (noteId, isArchive) => {
+    setNoteView(!noteView);
+    handleOverlayDisplay();
+    noteId && !noteView
+      ? !isArchive
+        ? setNote(allNotes.find((n) => n._id === noteId))
+        : setNote(archiveNotes.find((n) => n._id === noteId))
+      : setNote({});
+  };
+
+  const handleSearchInput = (value) => {
+    setSearchInput(value);
+  };
   const removeTag = (targetIdx) => {
     setNote((prev) => ({
       ...prev,
       tags: prev.tags.filter((t, idx) => idx !== targetIdx),
     }));
   };
-  const addNewTag = (inputId) => {
-    let tagValue = inputId.current.value;
-    tagValue.length < 3 || tagValue.length > 8
+  const addNewTag = (value) => {
+    value.length < 3 || value.length > 8
       ? setTagInputErr("tag must be between 3 and 8 characters")
       : note?.tags?.length >= 5
       ? setTagInputErr("maximum of 5 tags allowed")
-      : note?.tags?.includes(tagValue)
+      : note?.tags?.includes(value)
       ? setTagInputErr("tag has been already added!")
       : setNote((prev) => ({
           ...prev,
-          tags: prev.tags ? [...prev.tags, tagValue] : [tagValue],
+          tags: prev?.tags ? [...prev.tags, value] : [value],
         }));
-    inputId.current.value = "";
   };
   const selectTag = (selectId) => {
     let tagValue = selectId.current.value;
     note?.tags?.length >= 5
       ? setInputErr("maximum of 5 tags allowed")
-      : note.tags.includes(tagValue)
+      : note?.tags.includes(tagValue)
       ? setInputErr("tag has been already added!")
-      : setNote((prev) => ({ ...prev, tags: [...prev.tags, tagValue] }));
+      : setNote((prev) => ({ ...prev, tags: [...prev?.tags, tagValue] }));
   };
 
   const handleNote = (e) => {
@@ -282,6 +290,11 @@ export function NotesProvider({ children }) {
         isLoading,
         fetchDataErr,
         noteView,
+        searchInput,
+        tagSP,
+        handleTagSP,
+        setSearchInput,
+        handleSearchInput,
         handleNoteView,
         handleNote,
         addNewTag,

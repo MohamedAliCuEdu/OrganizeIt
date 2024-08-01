@@ -2,10 +2,11 @@ import React from "react";
 import useNotesContext from "../../hooks/useNotesContext";
 import NoteSectionIndex from "./noteSectionIndex";
 import CloseBtn from "../buttons/closeBtn";
-import useLayoutContext from "../../hooks/useLayoutContext";
+import FormBtns from "../buttons/formBtns";
 
 function NoteViewSection() {
-  const { allTags, handleNoteView } = useNotesContext();
+  const { allTags, handleNoteView, note, saveNoteApi, isPending } =
+    useNotesContext();
 
   return (
     <section className="note-section">
@@ -13,13 +14,20 @@ function NoteViewSection() {
         <CloseBtn callBack={handleNoteView} />
       </div>
       <NoteSectionIndex.NoteDate />
-      <NoteSectionIndex.NoteForm>
+      <form
+        method="POST"
+        onSubmit={(e) => {
+          saveNoteApi(e, note._id, note.is_archived);
+        }}
+      >
+        <NoteSectionIndex.NoteInputs />
         <NoteSectionIndex.NoteTags />
         <NoteSectionIndex.NoteTagInputs>
-          <NoteSectionIndex.NewTagInput />
+          <NoteSectionIndex.TagInput />
           {allTags?.length > 0 && <NoteSectionIndex.TagSelect />}
         </NoteSectionIndex.NoteTagInputs>
-      </NoteSectionIndex.NoteForm>
+        <FormBtns isPending={isPending} value={"save"} formErr={""} />
+      </form>
     </section>
   );
 }

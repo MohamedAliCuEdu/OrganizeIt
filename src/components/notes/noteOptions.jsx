@@ -7,29 +7,23 @@ import { MdEdit } from "react-icons/md";
 import { IoArchive } from "react-icons/io5";
 
 function NoteOptions({ noteId, isArchived }) {
-  const { deleteNoteApi, archiveNoteApi, handleNoteView } =
-    useNotesContext();
+  const { deleteNoteApi, archiveNoteApi, handleNoteView } = useNotesContext();
   const [optionView, setOptionView] = useState(false);
-  const optionsRef = React.useRef();
 
   return (
-    <div
-      className="note-options"
-      ref={optionsRef}
-      onClick={() => setOptionView(!optionView)}
-    >
-      <SlOptions />
+    <div className="note-options" onClick={() => setOptionView(!optionView)}>
+      <SlOptions className="options-icon"/>
       {optionView && (
         <div className="btns">
-          <button onClick={() => handleNoteView("open", noteId, isArchived)}>
+          <button className="white-gray-btn dark-hover" onClick={() => handleNoteView(noteId, isArchived)}>
             <MdEdit />
             edit
           </button>
-          <button onClick={() => deleteNoteApi(noteId, isArchived)}>
+          <button className="white-gray-btn dark-hover" onClick={() => deleteNoteApi(noteId, isArchived)}>
             <FaTrashAlt />
             delete
           </button>
-          <button onClick={() => archiveNoteApi(noteId, !isArchived)}>
+          <button className="white-gray-btn dark-hover" onClick={() => archiveNoteApi(noteId, !isArchived)}>
             <IoArchive />
             {isArchived ? "unarchive" : "archive"}
           </button>

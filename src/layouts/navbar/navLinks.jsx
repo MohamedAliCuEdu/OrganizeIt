@@ -2,22 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import { FaGear } from "react-icons/fa6";
-import { FaTasks, FaProjectDiagram } from "react-icons/fa";
+import { FaTasks, FaProjectDiagram, FaRegUserCircle } from "react-icons/fa";
 import { CgNotes } from "react-icons/cg";
-import { IoHomeSharp } from "react-icons/io5";
 import { ImCalendar } from "react-icons/im";
 import { GoFileSubmodule } from "react-icons/go";
-import { FaRegUserCircle } from "react-icons/fa";
 
 function NavLinks() {
   return (
     <ul className="nav-Links">
-      <li>
-        <NavLink to="/" title="to home page">
-          <IoHomeSharp />
-          home
-        </NavLink>
-      </li>
       <li>
         <NavLink to="/profile" title="to profile page">
           <FaRegUserCircle />
@@ -64,4 +56,4 @@ function NavLinks() {
   );
 }
 
-export default NavLinks;
+export default React.memo(NavLinks);

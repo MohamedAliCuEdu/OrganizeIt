@@ -7,13 +7,13 @@
   font-weight: 600;
   padding: 10px 20px;
   border-radius: $border-main-raduis;
-  @include respond-up(sm) {
+  @include respond-up(usm) {
     font-size: 14px;
-    padding: 8px 10px;
+    padding: 5px 10px;
   }
 }
 .md-btn {
-  font-size: 16px;
+  font-size: 18px;
   padding: 4px 8px;
   border-radius: $border-main-raduis;
   @include respond-up(usm) {
@@ -21,13 +21,59 @@
     padding: 4px;
   }
 }
+
 .sm-btn {
+  font-size: 16px;
+  padding: 4px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm) {
+    font-size: 14px;
+  }
+}
+.xsm-btn {
   font-size: 14px;
-  padding: 4px 8px;
+  padding: 4px;
   border-radius: $border-main-raduis;
   @include respond-up(usm) {
     font-size: 12px;
   }
+}
+//---------------------
+
+//----------- icon btn:
+.xlg-icon-btn {
+  font-size: 32px;
+  @include flex-center-h(null);
+  padding: 3px;
+  border-radius: $border-main-raduis;
+  @include respond-up(xsm) {
+    font-size: 28px;
+  }
+}
+.lg-icon-btn {
+  font-size: 28px;
+  @include flex-center-h(null);
+  padding: 3px;
+  border-radius: $border-main-raduis;
+  @include respond-up(xsm) {
+    font-size: 24px;
+  }
+  @include respond-up(usm) {
+    font-size: 18px;
+    padding: 3px;
+  }
+}
+.md-icon-btn {
+  font-size: 18px;
+  @include flex-center-h(null);
+  padding: 5px;
+  border-radius: $border-main-raduis;
+}
+.sm-icon-btn {
+  font-size: 16px;
+  @include flex-center-h(null);
+  padding: 5px;
+  border-radius: $border-main-raduis;
 }
 
 .main-back-btn {
@@ -51,10 +97,7 @@
 .dark-btn {
   color: $font-light-color;
   background-color: $main-dark-bg;
-  &:hover {
-    color: $alt-font-color;
-    background-color: $dark-bg-hover;
-  }
+  &:hover,
   &:disabled {
     color: $alt-font-color;
     background-color: $dark-bg-hover;
@@ -68,15 +111,12 @@
 .gray-btn {
   color: $font-dark-color;
   background-color: $gray-bg;
-  &.active,
-  &:hover {
-    color: $font-light-color;
-    background-color: $main-dark-bg;
-  }
 }
 .white-gray-btn {
   color: $font-dark-color;
   background-color: $white-gray-bg;
+}
+.dark-hover {
   &.active,
   &:hover {
     color: $font-light-color;
@@ -105,9 +145,9 @@
   font-weight: 600;
   font-size: 16px;
   background-color: $white-gray-bg;
-  padding: 4px;
+  padding: 3px;
   border-radius: $border-main-raduis;
-  @include respond-up(usm){
+  @include respond-up(usm) {
     font-size: 12px;
   }
 }

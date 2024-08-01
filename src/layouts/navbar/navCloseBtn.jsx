@@ -3,6 +3,7 @@ import { IoClose } from "react-icons/io5";
 import useLayoutContext from "../../hooks/useLayoutContext";
 
 function NavCloseBtn() {
+  console.log("-- nav close")
   const { handleNavDisplay } = useLayoutContext();
   return (
     <button
@@ -14,4 +15,4 @@ function NavCloseBtn() {
     </button>
   );
 }
-export default NavCloseBtn;
+export default React.memo(NavCloseBtn);

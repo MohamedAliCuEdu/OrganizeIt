@@ -8,12 +8,13 @@ export function LayoutProvider({ children }) {
   const [navDisplay, setNavDisplay] = useState(false);
   const windowDimensions = useWindowDimensions();
 
-  const handleOverlayDisplay = () => {
+  const handleOverlayDisplay = React.useCallback(() => {
     setOverlayDisplay(!overlayDisplay);
-  };
-  const handleNavDisplay = () => {
+  }, [overlayDisplay]);
+  
+  const handleNavDisplay = React.useCallback(() => {
     setNavDisplay(!navDisplay);
-  };
+  }, [navDisplay]);
 
   // for stop nav display when resize to large screen, and back to small screen:
   useEffect(() => {
@@ -21,7 +22,14 @@ export function LayoutProvider({ children }) {
   }, [windowDimensions]);
 
   return (
-    <LayoutContext.Provider value={{ overlayDisplay, handleOverlayDisplay, navDisplay, handleNavDisplay }}>
+    <LayoutContext.Provider
+      value={{
+        overlayDisplay,
+        handleOverlayDisplay,
+        navDisplay,
+        handleNavDisplay,
+      }}
+    >
       {children}
     </LayoutContext.Provider>
   );

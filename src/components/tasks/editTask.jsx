@@ -4,6 +4,7 @@ import CloseBtn from "../buttons/closeBtn";
 import useLayoutContext from "../../hooks/useLayoutContext";
 
 function EditTask() {
+  console.log("--edit")
   const { handleOverlay } = useLayoutContext();
   const { currentTask, handleCurrentTask, updateTaskApi, viewTaskEdit } =
     useTasksContext();
@@ -54,4 +55,4 @@ function EditTask() {
   );
 }
 
-export default EditTask;
+export default React.memo(EditTask);

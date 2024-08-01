@@ -51,14 +51,14 @@
 }
 // ------------------ end: shapes
 // ------------------ start: grid-system
-@mixin grid-column($s-size, $l-size, $gap) {
+@mixin grid-columns-auto($size, $gap) {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(#{$s-size}, #{$l-size}));
+  grid-template-columns: repeat(auto-fill, $size);
   gap: #{$gap};
 }
-@mixin grid-row($s-size, $l-size, $gap) {
+@mixin grid-rows-auto($size, $gap) {
   display: grid;
-  grid-template-row: repeat(auto-fill, minmax(#{$s-size}, #{$l-size}));
+  grid-template-row: repeat(auto-fill, $size);
   gap: #{$gap};
 }
 @mixin flex-between-h($gap) {

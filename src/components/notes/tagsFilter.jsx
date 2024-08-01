@@ -1,23 +1,33 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import useNotesContext from "../../hooks/useNotesContext";
 
 function TagFilter() {
-  const { allTags, setSearchInput } = useNotesContext();
+  const { allTags, handleSearchInput, tagSP, handleTagSP } = useNotesContext();
+  // const []
   return (
     <div className="tags-filter">
-      <NavLink to="/notes" onClick={() => setSearchInput("")}>
+      <button
+        className="dark-btn md-btn bold"
+        to="/notes"
+        onClick={() => {
+          handleSearchInput("");
+          handleTagSP("");
+        }}
+      >
         all
-      </NavLink>
+      </button>
       {allTags.map((t) => {
         return (
-          <NavLink
+          <button
+            className={`${
+              tagSP === t.tagName && "active"
+            } white-gray-btn dark-hover md-btn `}
             key={t.tagName}
-            to={`/notes?tag=${t.tagName}`}
+            onClick={() => handleTagSP(t.tagName)}
             relative="path"
           >
             {t.tagName}
-          </NavLink>
+          </button>
         );
       })}
     </div>

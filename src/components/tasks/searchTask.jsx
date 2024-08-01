@@ -3,6 +3,7 @@ import { IoSearch } from "react-icons/io5";
 import useTasksContext from "../../hooks/useTasksContext";
 
 function SearchTask() {
+  console.log("--search")
   const { searchInput, handleSearchInput } = useTasksContext();
   return (
     <div className="search-div">
@@ -19,4 +20,4 @@ function SearchTask() {
   );
 }
 
-export default SearchTask;
+export default React.memo(SearchTask);

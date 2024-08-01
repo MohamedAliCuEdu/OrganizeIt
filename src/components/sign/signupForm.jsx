@@ -1,6 +1,7 @@
 import React from "react";
 
 function SignupForm({ children, handleSubmit }) {
+  
   return (
     <form action="POST" onSubmit={handleSubmit}>
       <div className="input-div">
@@ -88,4 +89,4 @@ function SignupForm({ children, handleSubmit }) {
   );
 }
 
-export default SignupForm;
+export default React.memo(SignupForm);

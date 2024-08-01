@@ -1,4 +1,5 @@
 import React, { useEffect, useState, createContext } from "react";
+import { useSearchParams } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import useAxiosGetData from "../hooks/useAxiosGetData";
 import usePrivateAxios from "../hooks/usePrivateAxios";
@@ -10,6 +11,7 @@ export function TasksProvider({ children }) {
   const { auth } = useAuth();
   const { handleOverlayDisplay } = useLayoutContext();
   const axiosPrivateApi = usePrivateAxios();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [allTasks, setAllTasks] = useState([]);
   const [taskStats, setTaskStats] = useState([]);
@@ -32,8 +34,15 @@ export function TasksProvider({ children }) {
     setTaskStats(data.taskState);
   }, [data]);
 
+  let statusSP = searchParams.get("status");
+
+  const handleStatusSP = React.useCallback((status) => {
+    status ? searchParams.set("status", status) : searchParams.delete("status");
+    setSearchParams(searchParams);
+  }, [searchParams]);
+
   // handle Task editing Section view:
-  const viewTaskEdit = (taskId) => {
+  const viewTaskEdit = React.useCallback((taskId) => {
     if (taskId) {
       setTaskEdit(true);
       setCurrentTask(allTasks.find((t) => t._id === taskId));
@@ -41,7 +50,7 @@ export function TasksProvider({ children }) {
       setTaskEdit(false);
     }
     handleOverlayDisplay();
-  };
+  }, [allTasks]);
   // handle [add_task_input] change:
   const handleNewTask = React.useCallback((value) => {
     setNewTask(value);
@@ -175,6 +184,7 @@ export function TasksProvider({ children }) {
           });
     }
   }, [axiosPrivateApi, auth]);
+
   return (
     <TasksContext.Provider
       value={{
@@ -182,10 +192,12 @@ export function TasksProvider({ children }) {
         fetchDataErr,
         allTasks,
         taskStats,
-        taskEdit,
-        viewTaskEdit,
+        statusSP,
+        handleStatusSP,
         currentTask,
+        taskEdit,
         handleCurrentTask,
+        viewTaskEdit,
         newTask,
         handleNewTask,
         searchInput,

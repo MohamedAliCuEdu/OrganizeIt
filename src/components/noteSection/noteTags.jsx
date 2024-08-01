@@ -1,20 +1,19 @@
 import React from "react";
-import { TiDelete } from "react-icons/ti";
 import useNotesContext from "../../hooks/useNotesContext";
 import { FaTags } from "react-icons/fa6";
+import NoteSectionIndex from "./noteSectionIndex";
+
 function NoteTags() {
-  const { note, removeTag } = useNotesContext();
+  const { note } = useNotesContext();
   const tagId = React.useRef();
   return (
     <div className="tags-content">
       <FaTags />
-      <div className="all-tags">
+      <div className="note-tags">
         {note?.tags?.length > 0 ? (
           note.tags.map((val, idx) => {
             return (
-              <span className="tag-span" key={tagId + idx}>
-                {val} <TiDelete onClick={() => removeTag(idx)} />
-              </span>
+              <NoteSectionIndex.TagSpan key={tagId + idx} val={val} idx={idx} />
             );
           })
         ) : (

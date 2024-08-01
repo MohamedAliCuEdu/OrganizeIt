@@ -8,6 +8,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 
 function UserLinks() {
+  console.log("--- user")
   const { setAuth } = useAuth();
   const navigate = useNavigate();
 

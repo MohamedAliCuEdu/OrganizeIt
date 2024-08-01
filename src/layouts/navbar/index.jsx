@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
+
 import NavLinks from "./navLinks";
 import NavCloseBtn from "./navCloseBtn";
 import NavLogoBtn from "./navLogoBtn";
+
 import useLayoutContext from "../../hooks/useLayoutContext";
 
 function NavBar() {
@@ -18,4 +20,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default React.memo(NavBar);

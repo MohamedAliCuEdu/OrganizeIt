@@ -5,7 +5,7 @@ import ArchiveIndex from "../components/archiveComponents/archiveIndex";
 import ArrowBackBtn from "../components/buttons/arrowBackBtn"
 import DeleteAllBtn from "../components/buttons/deleteAllBtn";
 import OverlayElement from "../components/overlayElement";
-import NoteSectionIndex from "../components/noteSectionComponents/noteSectionIndex";
+import NoteSectionIndex from "../components/noteSection/noteSectionIndex";
 
 import useLayoutContext from "../hooks/useLayoutContext";
 import PageTitle from "../components/pageTitle";

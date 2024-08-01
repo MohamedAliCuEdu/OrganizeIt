@@ -36,7 +36,7 @@
     }
     .header-links {
       display: flex;
-      gap: 5px;
+      gap: 15px;
       a,
       button {
         @include icon-circle(35px, $main-light-bg, $font-dark-color, "inbox");

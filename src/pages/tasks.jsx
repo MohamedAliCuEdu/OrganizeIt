@@ -13,7 +13,7 @@ function Tasks() {
   const { overlayDisplay } = useLayoutContext();
   const { isLoading, fetchDataErr, allTasks, taskEdit, viewTaskEdit } =
     useTasksContext();
-
+console.log("--page")
   return (
     <main className="tasks-page">
       {overlayDisplay && <OverlayElement callback={viewTaskEdit} />}

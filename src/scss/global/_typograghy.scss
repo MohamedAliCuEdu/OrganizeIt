@@ -15,7 +15,8 @@ p {
   color: $font-dark-color;
 }
 label,
-input {
+input,
+textarea {
   color: $font-dark-color;
 }
 
@@ -44,10 +45,22 @@ h2 {
     font-size: 18px;
   }
 }
+h3 {
+  font-size: 20px;
+  @include respond-up(xsm) {
+    font-size: 18px;
+  }
+}
 h4 {
   font-size: 18px;
   @include respond-up(sm) {
     font-size: 16px;
+  }
+}
+h5 {
+  font-size: 16px;
+  @include respond-up(sm) {
+    font-size: 14px;
   }
 }
 
@@ -58,11 +71,10 @@ label,
     font-size: 12px;
   }
 }
-input {
+input,
+textarea {
   font-size: 16px;
   @include respond-up(usm) {
     font-size: 12px;
   }
 }
-
-

@@ -7,6 +7,7 @@ function NotesSearch() {
     <div className="search-title">
       <label htmlFor="search-notes">search title:</label>
       <input
+      className="input-lg-field light-input"
         type="search"
         name="search-notes"
         id="search-notes"

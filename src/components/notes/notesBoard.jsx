@@ -7,13 +7,14 @@ import { IoArchive } from "react-icons/io5";
 function NotesBoard() {
   const { allNotes, archiveNotes, allTags, isLoading, fetchDataErr } =
     useNotesContext();
+    console.log(allTags)
   const archiveNotesCount = archiveNotes?.length;
   return (
     <div className="notes-board">
-      <h3>
+      <h4>
         <IoIosStats />
         notes Statistics
-      </h3>
+      </h4>
       {isLoading ? (
         <div className="loading-board">
           <div className="load-wraper">
@@ -37,7 +38,7 @@ function NotesBoard() {
                   </div>
                   notes
                 </span>
-                <span className="count">{allNotes?.length || 0} </span>
+                <span className="count-btn">{allNotes?.length || 0} </span>
               </li>
               <li>
                 <span className="name">
@@ -46,7 +47,7 @@ function NotesBoard() {
                   </div>
                   archived
                 </span>
-                <span className="count">{archiveNotesCount || 0}</span>
+                <span className="count-btn">{archiveNotesCount || 0}</span>
               </li>
             </ul>
           </div>
@@ -60,8 +61,8 @@ function NotesBoard() {
                     let { tagName, count } = t;
                     return (
                       <li key={tagName}>
-                        <span className="tag-name">{tagName}</span>
-                        <span className="count">{count}</span>
+                        <span className="tag-name sm-btn white-gray-btn">{tagName}</span>
+                        <span className="count-btn">{count}</span>
                       </li>
                     );
                   })}

@@ -2,6 +2,23 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/breakpoints" as *;
 
+.input-xsm-field {
+  width: 150px;
+  padding: 6px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm) {
+    padding: 4px;
+  }
+}
+.input-sm-field {
+  width: 200px;
+  padding: 6px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm) {
+    width: 180px;
+    padding: 4px;
+  }
+}
 .input-md-field {
   width: 240px;
   padding: 6px;
@@ -16,7 +33,7 @@
   padding: 10px;
   border-radius: $border-main-raduis;
   @include respond-up(usm) {
-    width: 240px;
+    width: 220px;
     padding: 6px;
   }
 }
@@ -25,7 +42,7 @@
   padding: 10px;
   border-radius: $border-main-raduis;
   @include respond-up(usm) {
-    width: 260px;
+    width: 220px;
     padding: 8px;
   }
 }
@@ -35,6 +52,14 @@
   border-radius: $border-main-raduis;
   @include respond-up(usm) {
     width: 260px;
+    padding: 8px;
+  }
+}
+.full-w-field {
+  width: 100%;
+  padding: 10px;
+  border-radius: $border-main-raduis;
+  @include respond-up(usm) {
     padding: 8px;
   }
 }

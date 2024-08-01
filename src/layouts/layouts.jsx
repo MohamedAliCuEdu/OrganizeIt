@@ -5,7 +5,6 @@ import Navbar from "./navbar";
 import Header from "./header";
 
 function Layouts() {
-
   return (
     <>
       <Header />

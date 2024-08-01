@@ -9,4 +9,4 @@ function NoAccountMsg() {
   );
 }
 
-export default NoAccountMsg;
+export default React.memo(NoAccountMsg);

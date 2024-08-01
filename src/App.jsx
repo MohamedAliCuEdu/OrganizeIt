@@ -21,7 +21,7 @@ import Archive from "./pages/archive";
 import { TasksProvider } from "./context/tasksContext";
 import { LayoutProvider } from "./context/layoutContext";
 import { AuthProvider } from "./context/authContext";
-import AuthRequire from "./components/authRequire";
+import AuthRequire from "./context/authRequire";
 
 // if (process.env.NODE_ENV === 'production') disableReactDevTools();
 
@@ -34,8 +34,8 @@ function App() {
             <Route element={<Layout />}>
               <Route path="/login" element={<Login />}></Route>
               <Route path="/signup" element={<Signup />}></Route>
-              <Route index element={<Home />}></Route>
               <Route element={<PresistLogin />}>
+              <Route index element={<Home />}></Route>
                 <Route element={<AuthRequire />}>
                   <Route path="/profile" element={<Soon />}></Route>
                   <Route
@@ -79,8 +79,6 @@ function App() {
       </LayoutProvider>
     </BrowserRouter>
   );
-}
-{
 }
 
 export default App;

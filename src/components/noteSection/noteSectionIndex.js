@@ -1,19 +1,21 @@
-import NewTagInput from "./newTagInput";
+import TagInput from "./tagInput";
 import NoteDate from "./noteDate";
-import NoteForm from "./noteForm";
 import NoteViewSection from "./noteViewSection";
 import TagSelect from "./tagSelect";
 import NoteTagInputs from "./noteTagInputs";
 import NoteTags from "./noteTags";
+import NoteInputs from "./noteInputs";
+import TagSpan from "./tagSpan";
 
 const NoteSectionIndex = {
   NoteViewSection,
-  NoteForm,
-  NewTagInput,
+  TagInput,
   TagSelect,
   NoteTagInputs,
   NoteDate,
+  NoteInputs,
   NoteTags,
+  TagSpan
 };
 
 export default NoteSectionIndex;

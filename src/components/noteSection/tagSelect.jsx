@@ -8,6 +8,7 @@ function TagSelect() {
   return (
     <div className="select-tag-div">
       <select
+        className="light-input"
         name="tag"
         id="select-tag"
         ref={selectInputId}
@@ -15,7 +16,7 @@ function TagSelect() {
         onFocus={() => setInputErr("")}
       >
         <option key="_" value="_">
-          select tag
+          -- select tag --
         </option>
         {allTags.map((t) => (
           <option key={t.tagName} value={t.tagName}>
