@@ -23,7 +23,7 @@ import { LayoutProvider } from "./context/layoutContext";
 import { AuthProvider } from "./context/authContext";
 import AuthRequire from "./context/authRequire";
 
-// if (process.env.NODE_ENV === 'production') disableReactDevTools();
+if (process.env.NODE_ENV === 'production') disableReactDevTools();
 
 function App() {
   return (
